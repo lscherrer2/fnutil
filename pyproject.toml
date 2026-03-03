@@ -1,26 +1,53 @@
 [build-system]
-requires = ["setuptools>=61.0"] 
-build-backend = "setuptools.build_meta" 
+requires = ["uv_build"]
+build-backend = "uv_build"
 
 [project]
 name = "fnutil"
-version = "0.0.2"
+version = "1.0.0"
 description = "Lightweight functional-style helpers for Python 3.13+"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "typeguard>=4.4.4",
-]
+dependencies = []
 authors = [
-  { name="Luke Scherrer", email="lscherrer2@gmail.com" },
+  { name = "Luke Scherrer", email = "lscherrer2@gmail.com" },
 ]
 classifiers = [
-    "Programming Language :: Python :: 3",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
 ]
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
 
 [project.urls]
 Homepage = "https://github.com/lscherrer2/fnutil"
+Repository = "https://github.com/lscherrer2/fnutil"
 Issues = "https://github.com/lscherrer2/fnutil/issues"
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1",
+    "pytest>=9.0.2",
+    "ruff>=0.9",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.pyright]
+pythonVersion = "3.13"
+include = ["src", "tests"]

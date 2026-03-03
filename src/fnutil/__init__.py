@@ -1,12 +1,6 @@
 from __future__ import annotations
 
-from fnutil.expr import Expr, expr
-from fnutil.iterator import Iterator, iterate
+from fnutil.expression import Expression, expr
+from fnutil.iterator import Iterator, it
 
-
-__all__ = [
-    "Iterator",
-    "iterate",
-    "expr",
-    "Expr",
-]
+__all__ = ["Expression", "Iterator", "expr", "it"]
